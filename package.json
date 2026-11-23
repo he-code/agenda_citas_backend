@@ -1,0 +1,44 @@
+{
+  "name": "agenda-citas-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/src/server.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "db:migrate": "node-pg-migrate -m migrations",
+    "db:seed": "tsx scripts/seed.ts",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run build"
+  },
+  "dependencies": {
+    "fastify": "^5.12.6",
+    "@fastify/jwt": "^10.2.5",
+    "@fastify/cookie": "^9.2.0",
+    "@fastify/cors": "^10.0.0",
+    "fastify-rate-limit": "^2.0.0",
+    "helmet": "^8.0.0",
+    "pg": "^8",
+    "argon2": "^0.45.2",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/bcryptjs": "^2.4.3",
+    "eslint": "^8.57.0",
+    "@types/eslint": "^8.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.0.0",
+    "tsx": "^4.0.0",
+    "prettier": "^3.0.0",
+    "node-pg-migrate": "^9.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "typescript-eslint": "^7.0.0"
+  }
+}
